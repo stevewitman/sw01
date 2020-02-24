@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ProjectsService } from '@bb/core-data';
 import { Project } from '@bb/core-data';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Projects } from '@angular/cli/lib/config/schema';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -51,6 +50,14 @@ export class ProjectsComponent implements OnInit {
         this.reset();
         this.getProjects();
       })
+  }
+
+  delete(project: Project) {
+    this.projectsService.delete(project)
+      .subscribe(() => {
+        this.reset();
+        this.getProjects();
+      });
   }
 
   reset() {

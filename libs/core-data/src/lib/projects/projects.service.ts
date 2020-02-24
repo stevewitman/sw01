@@ -25,7 +25,7 @@ export class ProjectsService {
   }
 
   update(project: Project): Observable<Project> {
-    return this.httpClient.patch<Project>(this.projectsUrl, project);
+    return this.httpClient.patch<Project>(this.projectsUrl + '/' + project.id, project);
   }
 
   delete(project: Project): Observable<{}> {

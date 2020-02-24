@@ -3,21 +3,25 @@
     <h2>Create a Project</h2>
   </mat-card-title>
 
-  <form [formGroup]="group">
+  <form [formGroup]="group"  (submit)="saved.emit(group.value)">
     <mat-card-content class="mb-0">
       <mat-form-field class="full-width">
         <mat-label>Title</mat-label>
         <input
-          matInput type="text"
+          matInput
+          type="text"
           placeholder="Type your title here"
-          formControlName="title" />
+          formControlName="title"
+          name="title"/>
       </mat-form-field>
       <mat-form-field class="full-width">
         <mat-label>Details</mat-label>
         <input
-          matInput type="text"
+          matInput
+          type="text"
           placeholder="Type details here"
-          formControlName="details" />
+          formControlName="details"
+          name="details" />
       </mat-form-field>
 
       <span>Importance Level</span>
